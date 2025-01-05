@@ -64,10 +64,14 @@ int main() {
     }
 
     for (int i = 0; i < process_size; i++) {
+        process_array[i].turn_around_time = process_array[i].completion_time - process_array[i].arrival_time;
+        process_array[i].waiting_time = process_array[i].turn_around_time - process_array[i].burst_time;
         // std::cout << "process no: " << process_array[i].process_no << std::endl;
         // std::cout << "arrival time: " << process_array[i].arrival_time << std::endl;
         // std::cout << "burst time: " << process_array[i].burst_time << std::endl;   
-        std::cout << "completion time: " << process_array[i].completion_time << std::endl;     
+        std::cout << "completion time: " << process_array[i].completion_time << std::endl;   
+        std::cout << "turn_around_time: " << process_array[i].turn_around_time << std::endl;  
+        std::cout << "waiting_time: : " << process_array[i].waiting_time << std::endl;  
     }
 
     delete[] process_array;
